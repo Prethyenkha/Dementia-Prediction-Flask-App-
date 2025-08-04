@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dementia Risk Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Dementia Risk Prediction</h1>
+        <form method="POST">
+            <label>Age:</label>
+            <input type="number" name="Age" required step="any">
+            
+            <label>Education (Years):</label>
+            <input type="number" name="EDUC" required step="any">
+            
+            <label>Socioeconomic Status (SES):</label>
+            <input type="number" name="SES" required step="any">
+            
+            <label>MMSE Score:</label>
+            <input type="number" name="MMSE" required step="any">
+            
+            <label>CDR:</label>
+            <input type="number" name="CDR" required step="any">
+            
+            <label>eTIV:</label>
+            <input type="number" name="eTIV" required step="any">
+            
+            <label>nWBV:</label>
+            <input type="number" name="nWBV" required step="any">
+            
+            <label>ASF:</label>
+            <input type="number" name="ASF" required step="any">
+            
+            <label>Gender:</label>
+            <select name="Gender" required>
+                <option value="0">Female</option>
+                <option value="1">Male</option>
+            </select>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+        <div class="result">
+            <h2>Prediction: {{ prediction }}</h2>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
